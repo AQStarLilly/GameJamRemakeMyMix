@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
     private static List<PlayerController> allPlayers = new List<PlayerController>(); // Active players
     private static DynamicCamera cameraScript;
 
-    private AudioSource footstepAudio;
     private bool isMoving = false;
 
     private static bool isReloadingScene = false; // Prevent multiple scene reloads
@@ -65,7 +64,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotation;
 
-        footstepAudio = GetComponent<AudioSource>();
 
         if (cameraScript == null)
         {
@@ -91,12 +89,10 @@ public class PlayerController : MonoBehaviour
         bool isCurrentlyMoving = moveInput != Vector2.zero && IsGrounded();
         if (isCurrentlyMoving && !isMoving)
         {
-            if (!footstepAudio.isPlaying) footstepAudio.Play();
             isMoving = true;
         }
         else if (!isCurrentlyMoving && isMoving)
         {
-            footstepAudio.Stop();
             isMoving = false;
         }
 

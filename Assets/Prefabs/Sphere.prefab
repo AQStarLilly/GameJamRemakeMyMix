@@ -148,5 +148,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   bulletSpeed: 10
